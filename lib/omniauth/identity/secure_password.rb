@@ -43,7 +43,7 @@ module OmniAuth
           attr_reader   :password
 
           validates_confirmation_of :password
-          validates_presence_of     :password_digest
+          validates_presence_of     :password_digest, if: "provider == 'identity'"
 
           include InstanceMethodsOnActivation
 
