@@ -74,7 +74,7 @@ module OmniAuth
         end
       end
 
-      uid{ identity.uid }
+      uid{ options[:uid_method] ? identity.public_send(options[:uid_method]) : identity.uid }
       info{ identity.info }
 
       def registration_path
